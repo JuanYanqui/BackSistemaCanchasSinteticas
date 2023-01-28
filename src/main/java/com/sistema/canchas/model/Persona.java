@@ -1,6 +1,5 @@
 package com.sistema.canchas.model;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Getter;
 import lombok.Setter;
 

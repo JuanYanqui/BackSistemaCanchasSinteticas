@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -18,5 +19,10 @@ public class Barrio {
 
     @Column(name = "nombre")
     private Long nombre;
+
+    @OneToMany(mappedBy = "barrio")
+    private List<Ubicacion> ubicacion;
+
+
 
 }
