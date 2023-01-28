@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -34,16 +35,33 @@ public class Establecimiento {
     private DateTime horaCierre;
 
     @Column(name="bar")
-    private boolean bar;
+    private Boolean bar;
 
     @Column(name="vestidores")
-    private boolean vestidores;
+    private Boolean vestidores;
 
     @Column(name="estacionamiento")
-    private boolean estacionamiento;
+    private Boolean estacionamiento;
 
     @Column(name="banios")
-    private boolean banios;
+    private Boolean banios;
+    @Column(name = "estado")
+    private Boolean esatdo;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idAdministrador",referencedColumnName = "idAdministrador")
+    private Administrador administrador;
+
+    @OneToOne(mappedBy = "establecimiento")
+    private Ubicacion ubicacion;
+
+    @OneToMany(mappedBy = "establecimiento")
+    private List<Foto_Establecimiento> fotoEstablecimiento;
+
+    @OneToMany(mappedBy = "establecimiento")
+    private List<Cancha> canchas;
+
+    @OneToMany(mappedBy = "establecimiento")
+    private List<Registro_Damage> registroDamages;
 
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -25,4 +26,10 @@ public class Administrador {
     @OneToOne
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;
+
+    @OneToMany(mappedBy = "administrador")
+    private List<Establecimiento> establecimiento;
+
+    @OneToMany(mappedBy = "administrador")
+    private List<Reclamo> reclamos;
 }
