@@ -8,15 +8,14 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-@Table(name = "rol")
-public class Rol {
+@Table(name = "horario")
+public class Horario {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRol;
+    @Column(name="idHorario")
+    private Long idHorario;
 
-    private String nombre;
-    private String descripcion;
-
-
+    @Column(name="hora")
+    private Long hora;
 }

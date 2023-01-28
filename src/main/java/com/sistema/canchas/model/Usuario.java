@@ -26,22 +26,13 @@ public class Usuario {
     @Column(name="estado")
     private boolean estado;
 
-    @Column(name="foto")
-    private String foto;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;
 
     @ManyToOne
-    @JoinColumn(name="idEstablecimiento",referencedColumnName ="idEstablecimiento")
-    private Establecimiento establecimiento;
-
-    @ManyToOne
     @JoinColumn(name="idRol",referencedColumnName ="idRol")
     private Rol rol;
-
-
 
 
 

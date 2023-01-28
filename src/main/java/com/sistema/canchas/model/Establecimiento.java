@@ -2,6 +2,7 @@ package com.sistema.canchas.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,17 +24,14 @@ public class Establecimiento {
     @Column(name="nombre")
     private String nombre;
 
-    @Column(name="ubicacion")
-    private String ubicacion;
-
     @Column(name="puntuacion")
     private Integer puntuacion;
 
     @Column(name="horaApertura")
-    private Date horaApertura;
+    private DateTime horaApertura;
 
     @Column(name="horaCierre")
-    private Date horaCierre;
+    private DateTime horaCierre;
 
     @Column(name="bar")
     private boolean bar;
@@ -47,8 +45,5 @@ public class Establecimiento {
     @Column(name="banios")
     private boolean banios;
 
-    @ManyToOne
-    @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
-    private Persona persona;
 
 }

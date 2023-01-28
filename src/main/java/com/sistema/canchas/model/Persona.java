@@ -21,10 +21,10 @@ public class Persona {
     @Column(name="cedula")
     private String cedula;
 
-    @Column(name="nombres")
+    @Column(name="nombre")
     private String nombres;
 
-    @Column(name="apellidos")
+    @Column(name="apellido")
     private String apellidos;
 
     @Column(name="fechaNacimiento")
@@ -36,8 +36,8 @@ public class Persona {
     @Column(name="direccion")
     private String direccion;
 
-    @Column(name="correo")
-    private String correo;
+    @Column(name="email")
+    private String email;
 
     @Column(name="telefono")
     private String telefono;
@@ -45,8 +45,13 @@ public class Persona {
     @Column(name="celular")
     private String celular;
 
+    @Column(name="foto")
+    private String foto;
+
     @Column(name="fechaRegistro")
     private Date fechaRegistro;
+
+
 
 
 }
