@@ -1,9 +1,10 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Setter
@@ -26,13 +27,13 @@ public class Usuario {
     @Column(name="estado")
     private boolean estado;
 
-    @OneToOne
-    @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
+    @OneToOne(mappedBy = "usuario")
     private Persona persona;
 
     @ManyToOne
-    @JoinColumn(name="idRol",referencedColumnName ="idRol")
+    @JoinColumn(name = "idRol",referencedColumnName = "idRol")
     private Rol rol;
+
 
 
 

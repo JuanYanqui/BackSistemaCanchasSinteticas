@@ -1,9 +1,12 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Setter
@@ -27,7 +30,7 @@ public class Persona {
     private String apellidos;
 
     @Column(name="fechaNacimiento")
-    private Date fechaNacimmiento;
+    private LocalDate fechaNacimmiento;
 
     @Column(name="genero")
     private String genero;
@@ -48,9 +51,11 @@ public class Persona {
     private String foto;
 
     @Column(name="fechaRegistro")
-    private Date fechaRegistro;
-
-
+    private LocalDate fechaRegistro;
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="idUsuario",referencedColumnName ="idUsuario")
+    private Usuario usuario;
 
 
 }
