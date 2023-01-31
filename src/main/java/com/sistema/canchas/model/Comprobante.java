@@ -20,7 +20,7 @@ public class Comprobante {
     @Column(name="total")
     private Double total;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idPago",referencedColumnName = "idPago")
     private Pago pago;
 

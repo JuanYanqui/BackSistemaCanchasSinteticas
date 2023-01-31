@@ -32,6 +32,7 @@ public class Administrador {
     @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
     private List<Establecimiento> establecimiento;
 
-    @OneToMany(mappedBy = "administrador")
+    @JsonIgnore
+    @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
     private List<Reclamo> reclamos;
 }

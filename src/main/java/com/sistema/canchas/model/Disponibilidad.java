@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,10 +20,11 @@ public class Disponibilidad {
     @Column(name = "hora")
     private Date hora;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idCancha",referencedColumnName = "idCancha")
     private Cancha cancha;
 
-    @OneToMany(mappedBy = "disponibilidad")
+    @JsonIgnore
+    @OneToMany(mappedBy = "disponibilidad",cascade = CascadeType.ALL)
     private List<Reserva> reserva;
 }

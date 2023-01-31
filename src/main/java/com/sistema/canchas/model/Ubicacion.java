@@ -24,7 +24,7 @@ public class Ubicacion {
     @ManyToOne
     @JoinColumn(name = "idBarrio",referencedColumnName = "idBarrio")
     private Barrio barrio;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
 

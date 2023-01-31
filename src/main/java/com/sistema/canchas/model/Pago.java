@@ -22,14 +22,12 @@ public class Pago {
     @Column(name = "estado")
     private Boolean estado;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
     private RegistroDamage registroDamage;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
     private Cliente cliente;
 
-    @OneToOne(mappedBy = "pago")
-    private Comprobante comprobante;
 }

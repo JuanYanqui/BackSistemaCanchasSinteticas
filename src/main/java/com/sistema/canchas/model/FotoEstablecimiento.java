@@ -16,7 +16,7 @@ public class FotoEstablecimiento {
     private Long idFoto;
     @Column(name = "foto")
     private String foto;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
 }
