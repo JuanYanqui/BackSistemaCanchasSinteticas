@@ -14,7 +14,7 @@ import java.util.Date;
 @Entity
 @Table(name = "persona")
 public class Persona {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idPersona")
@@ -52,10 +52,7 @@ public class Persona {
 
     @Column(name="fechaRegistro")
     private LocalDate fechaRegistro;
-    @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="idUsuario",referencedColumnName ="idUsuario")
-    private Usuario usuario;
+
 
 
 }

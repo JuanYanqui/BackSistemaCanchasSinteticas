@@ -27,7 +27,8 @@ public class Usuario {
     @Column(name="estado")
     private boolean estado;
 
-    @OneToOne(mappedBy = "usuario")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;
 
     @ManyToOne
