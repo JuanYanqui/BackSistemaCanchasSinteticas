@@ -20,11 +20,11 @@ public class Reclamo {
     private String descripcion;
     private Date fecha_reclamo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
     private Cliente cliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idAdministrador",referencedColumnName = "idAdministrador")
     private Administrador administrador;
 }

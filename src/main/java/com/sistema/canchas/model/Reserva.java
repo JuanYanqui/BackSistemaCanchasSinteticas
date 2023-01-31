@@ -19,11 +19,11 @@ public class Reserva {
     @Column(name = "fecha_reserva")
     private Date fecha_reserva;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "ididDisponibilidad",referencedColumnName = "idDisponibilidad")
     private Disponibilidad disponibilidad;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
     private Cliente cliente;
 

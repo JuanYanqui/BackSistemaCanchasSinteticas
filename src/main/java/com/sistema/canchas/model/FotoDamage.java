@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 @Getter
 @Setter
 @Table(name = "foto_damage")
-public class Foto_Damage {
+public class FotoDamage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFoto")
@@ -19,5 +19,5 @@ public class Foto_Damage {
 
     @ManyToOne
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
-    private Registro_Damage registroDamage;
+    private RegistroDamage registroDamage;
 }

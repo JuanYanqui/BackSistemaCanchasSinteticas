@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,8 +20,8 @@ public class Barrio {
 
     @Column(name = "nombre")
     private Long nombre;
-
-    @OneToMany(mappedBy = "barrio")
+    @JsonIgnore
+    @OneToMany(mappedBy = "barrio",cascade = CascadeType.ALL)
     private List<Ubicacion> ubicacion;
 
 

@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,20 +48,17 @@ public class Establecimiento {
     @Column(name = "estado")
     private Boolean esatdo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idAdministrador",referencedColumnName = "idAdministrador")
     private Administrador administrador;
-
-    @OneToOne(mappedBy = "establecimiento")
-    private Ubicacion ubicacion;
-
-    @OneToMany(mappedBy = "establecimiento")
-    private List<Foto_Establecimiento> fotoEstablecimiento;
-
-    @OneToMany(mappedBy = "establecimiento")
+    @JsonIgnore
+    @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
+    private List<FotoEstablecimiento> fotoEstablecimiento;
+    @JsonIgnore
+    @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<Cancha> canchas;
-
-    @OneToMany(mappedBy = "establecimiento")
-    private List<Registro_Damage> registroDamages;
+    @JsonIgnore
+    @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
+    private List<RegistroDamage> registroDamages;
 
 }

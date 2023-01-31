@@ -9,14 +9,14 @@ import jakarta.persistence.*;
 @Getter
 @Entity
 @Table(name = "foto_establecimiento")
-public class Foto_Establecimiento {
+public class FotoEstablecimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFoto")
     private Long idFoto;
     @Column(name = "foto")
     private String foto;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
 }

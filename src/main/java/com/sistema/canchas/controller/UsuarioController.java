@@ -34,6 +34,15 @@ public class UsuarioController {
     public ResponseEntity<Usuario> crearcli(@RequestBody Usuario usuario){
         return new ResponseEntity<>(service.save(usuario), HttpStatus.CREATED);
     }
+    @PutMapping("/upd/{usern}")
+    public ResponseEntity<Usuario> UpdateUser(@RequestBody Usuario u,@PathVariable Long id){
+        Usuario us=service.findById(id);
+        us.setUsername(u.getUsername());
+        us.setPassword(u.getPassword());
+        return new ResponseEntity<>(service.save(us),HttpStatus.CREATED);
+
+    }
+
 
     @DeleteMapping("/eli/{id}")
     public ResponseEntity <?> eliminarli(@PathVariable Long id) {

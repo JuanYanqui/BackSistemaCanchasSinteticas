@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Setter
@@ -23,14 +22,12 @@ public class Pago {
     @Column(name = "estado")
     private Boolean estado;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
-    private Registro_Damage registroDamage;
+    private RegistroDamage registroDamage;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
     private Cliente cliente;
 
-    @OneToOne(mappedBy = "pago")
-    private Comprobante comprobante;
 }

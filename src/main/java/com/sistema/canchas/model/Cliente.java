@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,20 +21,23 @@ public class Cliente {
     @Column(name="lista_Negra")
     private boolean lista_Negra;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;
-
-    @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
     private List<Reclamo> reclamo;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Registro_Damage> registroDamages;
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    private List<RegistroDamage> registroDamages;
 
-    @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
     private List<Pago> pagos;
 
-    @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
     private List<Reserva> reservas;
 
 }

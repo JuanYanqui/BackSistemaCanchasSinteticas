@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,11 +26,12 @@ public class Cancha {
     private String descripcion;
     @Column(name = "tarifa")
     private Double tarifa;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
 
-    @OneToMany(mappedBy = "cancha")
-    private List<Disponibilidad> disponibilidades;
+    @JsonIgnore
+    @OneToMany(mappedBy = "cancha",cascade = CascadeType.ALL)
+    private List<Disponibilidad> disponibilidad;
 
 }
