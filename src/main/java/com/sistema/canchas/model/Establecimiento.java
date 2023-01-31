@@ -2,9 +2,8 @@ package com.sistema.canchas.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.joda.time.DateTime;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -29,10 +28,10 @@ public class Establecimiento {
     private Integer puntuacion;
 
     @Column(name="horaApertura")
-    private DateTime horaApertura;
+    private Date horaApertura;
 
     @Column(name="horaCierre")
-    private DateTime horaCierre;
+    private Date horaCierre;
 
     @Column(name="bar")
     private Boolean bar;
