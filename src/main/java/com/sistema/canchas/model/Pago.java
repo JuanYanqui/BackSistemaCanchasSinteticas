@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Setter
@@ -25,7 +24,7 @@ public class Pago {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
-    private Registro_Damage registroDamage;
+    private RegistroDamage registroDamage;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")

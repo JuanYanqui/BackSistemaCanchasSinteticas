@@ -28,6 +28,21 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
     }
 
+    @PutMapping("/upd/{ced}")
+    public ResponseEntity<Persona> upddatePersona(@RequestBody Persona p,@PathVariable String ced){
+        Persona pe=personaService.porCedula(ced);
+        pe.setNombres(p.getNombres());
+        pe.setApellidos(p.getApellidos());
+        pe.setFechaNacimmiento(p.getFechaNacimmiento());
+        pe.setGenero(p.getGenero());
+        pe.setDireccion(p.getDireccion());
+        pe.setEmail(p.getEmail());
+        pe.setTelefono(p.getTelefono());
+        pe.setCelular(p.getCelular());
+        pe.setFoto(p.getFoto());
+        return new ResponseEntity<>(personaService.save(pe),HttpStatus.CREATED);
+    }
+
     @DeleteMapping("/eli/{id}")
     public ResponseEntity <?> eliminarli(@PathVariable Long id) {
         personaService.delete(id);
@@ -48,4 +63,6 @@ public class PersonaController {
     public Persona porCedula(@PathVariable String cedula){
         return personaService.porCedula(cedula);
     }
+
+
 }

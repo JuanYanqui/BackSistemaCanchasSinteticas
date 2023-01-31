@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Getter
 @Table(name = "registro_damage")
-public class Registro_Damage {
+public class RegistroDamage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idDamage")
@@ -27,7 +27,7 @@ public class Registro_Damage {
     private Establecimiento establecimiento;
 
     @OneToMany(mappedBy = "registroDamage")
-    private List<Foto_Damage> fotoDamages;
+    private List<FotoDamage> fotoDamages;
 
     @OneToMany(mappedBy = "registroDamage")
     private List<Pago> pagos;

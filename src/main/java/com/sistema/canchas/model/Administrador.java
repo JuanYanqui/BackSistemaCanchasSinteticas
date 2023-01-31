@@ -1,5 +1,6 @@
 package com.sistema.canchas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "administrador")
 public class Administrador {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idAdministrador")
@@ -23,11 +24,12 @@ public class Administrador {
     @Column(name="n_cuenta_bancaria")
     private String n_cuenta_bancaria;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;
 
-    @OneToMany(mappedBy = "administrador")
+    @JsonIgnore
+    @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
     private List<Establecimiento> establecimiento;
 
     @OneToMany(mappedBy = "administrador")

@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idUsuario")

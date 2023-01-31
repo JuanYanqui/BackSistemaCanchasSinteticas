@@ -28,7 +28,7 @@ public class Cliente {
     private List<Reclamo> reclamo;
 
     @OneToMany(mappedBy = "cliente")
-    private List<Registro_Damage> registroDamages;
+    private List<RegistroDamage> registroDamages;
 
     @OneToMany(mappedBy = "cliente")
     private List<Pago> pagos;

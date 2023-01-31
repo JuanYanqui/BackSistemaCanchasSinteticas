@@ -5,18 +5,19 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 
-@Setter
-@Getter
 @Entity
-@Table(name = "foto_establecimiento")
-public class Foto_Establecimiento {
+@Getter
+@Setter
+@Table(name = "foto_damage")
+public class FotoDamage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFoto")
     private Long idFoto;
     @Column(name = "foto")
     private String foto;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
-    private Establecimiento establecimiento;
+
+    @ManyToOne
+    @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
+    private RegistroDamage registroDamage;
 }

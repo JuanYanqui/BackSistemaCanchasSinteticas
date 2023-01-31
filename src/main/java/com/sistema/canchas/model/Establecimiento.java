@@ -47,7 +47,7 @@ public class Establecimiento {
     @Column(name = "estado")
     private Boolean esatdo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idAdministrador",referencedColumnName = "idAdministrador")
     private Administrador administrador;
 
@@ -55,12 +55,12 @@ public class Establecimiento {
     private Ubicacion ubicacion;
 
     @OneToMany(mappedBy = "establecimiento")
-    private List<Foto_Establecimiento> fotoEstablecimiento;
+    private List<FotoEstablecimiento> fotoEstablecimiento;
 
     @OneToMany(mappedBy = "establecimiento")
     private List<Cancha> canchas;
 
     @OneToMany(mappedBy = "establecimiento")
-    private List<Registro_Damage> registroDamages;
+    private List<RegistroDamage> registroDamages;
 
 }
