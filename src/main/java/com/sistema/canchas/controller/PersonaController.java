@@ -31,8 +31,8 @@ public class PersonaController {
     @PutMapping("/upd/{ced}")
     public ResponseEntity<Persona> upddatePersona(@RequestBody Persona p,@PathVariable String ced){
         Persona pe=personaService.porCedula(ced);
-        pe.setNombres(p.getNombres());
-        pe.setApellidos(p.getApellidos());
+        pe.setNombre(p.getNombre());
+        pe.setApellido(p.getApellido());
         pe.setFechaNacimmiento(p.getFechaNacimmiento());
         pe.setGenero(p.getGenero());
         pe.setDireccion(p.getDireccion());

@@ -24,10 +24,10 @@ public class Persona {
     private String cedula;
 
     @Column(name="nombre")
-    private String nombres;
+    private String nombre;
 
     @Column(name="apellido")
-    private String apellidos;
+    private String apellido;
 
     @Column(name="fechaNacimiento")
     private LocalDate fechaNacimmiento;
