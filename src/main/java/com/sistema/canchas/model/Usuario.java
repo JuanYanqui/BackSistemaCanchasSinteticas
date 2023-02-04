@@ -1,11 +1,9 @@
 package com.sistema.canchas.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Setter
 @Getter

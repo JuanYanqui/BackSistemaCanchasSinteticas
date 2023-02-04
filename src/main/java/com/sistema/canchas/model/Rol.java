@@ -16,8 +16,11 @@ public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idRol")
     private Long idRol;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "descripcion")
     private String descripcion;
     //Relaciones con tablas
     @JsonIgnore

@@ -14,7 +14,7 @@ public class PagoReserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPagoReserva")
-    private Long idReserva;
+    private Long idPagoReserva;
     @Column(name = "foto")
     private String foto;
     @Column(name = "estado")

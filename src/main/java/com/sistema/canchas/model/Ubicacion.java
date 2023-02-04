@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 public class Ubicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idUbicacion")
     private Long idUbicacion;
     @Column(name = "calle_principal")
     private String calle_principal;
