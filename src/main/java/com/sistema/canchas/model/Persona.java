@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -53,6 +54,31 @@ public class Persona {
     @Column(name="fechaRegistro")
     private LocalDate fechaRegistro;
 
+    @Column(name = "entidad_bancaria")
+    private String entidad_bancaria;
 
+    @Column(name = "numero_cuenta")
+    private String numero_cuenta;
+    //Relaciones con tablas
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    private List<Reclamo> reclamo;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
+    private List<Reclamo> reclamos;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    private List<Reserva> reservas;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
+    private List<Establecimiento> establecimiento;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    private List<RegistroDamage> registroDamages;
 
 }

@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "establecimiento")
 public class Establecimiento {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idEstablecimiento")
@@ -49,8 +49,8 @@ public class Establecimiento {
     private Boolean esatdo;
 
     @ManyToOne
-    @JoinColumn(name = "idAdministrador",referencedColumnName = "idAdministrador")
-    private Administrador administrador;
+    @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")
+    private Persona administrador;
     @JsonIgnore
     @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<FotoEstablecimiento> fotoEstablecimiento;
@@ -60,5 +60,9 @@ public class Establecimiento {
     @JsonIgnore
     @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<RegistroDamage> registroDamages;
+
+    @ManyToOne
+    @JoinColumn(name = "idBarrio",referencedColumnName = "idBarrio")
+    private Barrio barrio;
 
 }

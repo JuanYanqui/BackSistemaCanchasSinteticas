@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "barrio")
 public class Barrio {
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBarrio")
@@ -22,7 +22,7 @@ public class Barrio {
     private Long nombre;
     @JsonIgnore
     @OneToMany(mappedBy = "barrio",cascade = CascadeType.ALL)
-    private List<Ubicacion> ubicacion;
+    private List<Establecimiento> establecimientos;
 
 
 

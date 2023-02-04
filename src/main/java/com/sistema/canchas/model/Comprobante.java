@@ -22,6 +22,6 @@ public class Comprobante {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idPago",referencedColumnName = "idPago")
-    private Pago pago;
+    private PagoDamage pagoDamage;
 
 }

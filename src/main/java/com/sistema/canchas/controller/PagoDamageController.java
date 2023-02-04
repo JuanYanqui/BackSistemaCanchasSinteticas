@@ -1,7 +1,7 @@
 package com.sistema.canchas.controller;
 
-import com.sistema.canchas.model.Cliente;
-import com.sistema.canchas.service.ClienteService;
+import com.sistema.canchas.model.PagoDamage;
+import com.sistema.canchas.service.PagoDamageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/pagoDamage")
+public class PagoDamageController {
     @Autowired
-    ClienteService clienteService;
-
+    PagoDamageService pagoDamageService;
     @GetMapping("/li")
-    public ResponseEntity<List<Cliente>>getList(){
-        return new ResponseEntity<>(clienteService.findByAll(), HttpStatus.OK);
+    public ResponseEntity<List<PagoDamage>>getList(){
+        return new ResponseEntity<>(pagoDamageService.findByAll(), HttpStatus.OK);
     }
 }

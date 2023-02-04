@@ -17,9 +17,9 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRol;
-
     private String nombre;
     private String descripcion;
+    //Relaciones con tablas
     @JsonIgnore
     @OneToMany(mappedBy = "rol",cascade = CascadeType.ALL)
     private List<Usuario> usuario;

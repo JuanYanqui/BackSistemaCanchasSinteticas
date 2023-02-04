@@ -26,7 +26,7 @@ public class Usuario {
 
     @Column(name="estado")
     private boolean estado;
-
+    //Relaciones con tablas
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;

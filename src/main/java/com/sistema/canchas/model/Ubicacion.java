@@ -19,11 +19,13 @@ public class Ubicacion {
     private String calle_secundaria;
     @Column(name = "referencia")
     private String referencia;
-    @Column(name = "numero")
+    @Column(name = "numero_casa")
     private String numero;
-    @ManyToOne
-    @JoinColumn(name = "idBarrio",referencedColumnName = "idBarrio")
-    private Barrio barrio;
+    @Column(name = "latitud")
+    private String latitud;
+    @Column(name = "longitud")
+    private String longitud;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
