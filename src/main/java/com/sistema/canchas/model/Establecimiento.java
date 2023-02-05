@@ -50,7 +50,7 @@ public class Establecimiento {
 
     @ManyToOne
     @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")
-    private Persona administrador;
+    private Persona persona;
     @JsonIgnore
     @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<FotoEstablecimiento> fotoEstablecimiento;

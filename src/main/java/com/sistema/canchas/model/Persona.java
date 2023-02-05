@@ -73,7 +73,7 @@ public class Persona {
     private List<Reserva> reservas;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "administrador",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona",cascade = CascadeType.ALL)
     private List<Establecimiento> establecimiento;
 
     @JsonIgnore
