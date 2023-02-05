@@ -1,11 +1,9 @@
 package com.sistema.canchas.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Setter
 @Getter
@@ -26,7 +24,7 @@ public class Usuario {
 
     @Column(name="estado")
     private boolean estado;
-
+    //Relaciones con tablas
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
     private Persona persona;

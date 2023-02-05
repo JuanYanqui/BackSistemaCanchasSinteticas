@@ -1,11 +1,10 @@
 package com.sistema.canchas.controller;
 
-import com.sistema.canchas.model.Pago;
-import com.sistema.canchas.service.PagoService;
+import com.sistema.canchas.model.PagoReserva;
+import com.sistema.canchas.service.PagoReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pago")
-public class PagoController {
+@RequestMapping("/pagoReserva")
+public class PagoReservaController {
     @Autowired
-    PagoService pagoService;
+    PagoReservaService pagoReservaService;
     @GetMapping("/li")
-    public ResponseEntity<List<Pago>>getList(){
-        return new ResponseEntity<>(pagoService.findByAll(), HttpStatus.OK);
+    public ResponseEntity<List<PagoReserva>> getList(){
+        return new ResponseEntity<>(pagoReservaService.findByAll(), HttpStatus.OK);
     }
 }

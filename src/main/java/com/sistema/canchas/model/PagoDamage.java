@@ -9,8 +9,8 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
-@Table(name = "pago")
-public class Pago {
+@Table(name = "pago_damage")
+public class PagoDamage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPago")
@@ -26,8 +26,5 @@ public class Pago {
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
     private RegistroDamage registroDamage;
 
-    @ManyToOne
-    @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
-    private Cliente cliente;
 
 }

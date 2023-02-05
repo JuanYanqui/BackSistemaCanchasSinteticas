@@ -1,7 +1,7 @@
 package com.sistema.canchas.controller;
 
-import com.sistema.canchas.model.Comprobante;
-import com.sistema.canchas.service.ComprobanteService;
+import com.sistema.canchas.model.PagoDamage;
+import com.sistema.canchas.service.PagoDamageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/comprobante")
-public class ComprobanteController {
+@RequestMapping("/pagoDamage")
+public class PagoDamageController {
     @Autowired
-    ComprobanteService comprobanteService;
+    PagoDamageService pagoDamageService;
     @GetMapping("/li")
-    public ResponseEntity<List<Comprobante>>getList(){
-        return new ResponseEntity<>(comprobanteService.findByAll(), HttpStatus.OK);
+    public ResponseEntity<List<PagoDamage>>getList(){
+        return new ResponseEntity<>(pagoDamageService.findByAll(), HttpStatus.OK);
     }
 }

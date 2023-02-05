@@ -21,8 +21,8 @@ public class RegistroDamage {
     @Column(name = "valor")
     private Double valor;
     @ManyToOne
-    @JoinColumn(name = "idCliente",referencedColumnName = "idCliente")
-    private Cliente cliente;
+    @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")
+    private Persona cliente;
     @ManyToOne
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
@@ -33,5 +33,5 @@ public class RegistroDamage {
 
     @JsonIgnore
     @OneToMany(mappedBy = "registroDamage",cascade = CascadeType.ALL)
-    private List<Pago> pagos;
+    private List<PagoDamage> pagoDamages;
 }
