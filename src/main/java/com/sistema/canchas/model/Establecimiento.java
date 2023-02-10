@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -29,10 +32,10 @@ public class Establecimiento {
     private Integer puntuacion;
 
     @Column(name="horaApertura")
-    private Date horaApertura;
+    private LocalTime horaApertura;
 
     @Column(name="horaCierre")
-    private Date horaCierre;
+    private LocalTime horaCierre;
 
     @Column(name="bar")
     private Boolean bar;
@@ -45,15 +48,19 @@ public class Establecimiento {
 
     @Column(name="banios")
     private Boolean banios;
+
     @Column(name = "estado")
     private Boolean esatdo;
+
+    @Column(name = "fotoestablecimiento")
+    private String fotoestablecimiento;
+
+
 
     @ManyToOne
     @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")
     private Persona persona;
-    @JsonIgnore
-    @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
-    private List<FotoEstablecimiento> fotoEstablecimiento;
+
     @JsonIgnore
     @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<Cancha> canchas;
@@ -64,5 +71,9 @@ public class Establecimiento {
     @ManyToOne
     @JoinColumn(name = "idBarrio",referencedColumnName = "idBarrio")
     private Barrio barrio;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUbicacion",referencedColumnName = "idUbicacion")
+    private Ubicacion ubicacion;
 
 }

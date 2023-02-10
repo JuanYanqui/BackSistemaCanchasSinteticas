@@ -34,7 +34,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> crearcli(@RequestBody Usuario usuario){
         return new ResponseEntity<>(service.save(usuario), HttpStatus.CREATED);
     }
-    @PutMapping("/upd/{usern}")
+    @PutMapping("/upd/{id}")
     public ResponseEntity<Usuario> UpdateUser(@RequestBody Usuario u,@PathVariable Long id){
         Usuario us=service.findById(id);
         us.setUsername(u.getUsername());

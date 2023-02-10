@@ -22,6 +22,7 @@ public class Usuario {
     @Column(name="password")
     private String password;
 
+
     @Column(name="estado")
     private boolean estado;
     //Relaciones con tablas
