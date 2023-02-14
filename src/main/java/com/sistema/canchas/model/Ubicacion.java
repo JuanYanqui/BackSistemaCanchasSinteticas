@@ -21,14 +21,12 @@ public class Ubicacion {
     @Column(name = "referencia")
     private String referencia;
     @Column(name = "numero_casa")
-    private String numero;
+    private Integer numero;
     @Column(name = "latitud")
     private String latitud;
     @Column(name = "longitud")
     private String longitud;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
-    private Establecimiento establecimiento;
+
 
 }

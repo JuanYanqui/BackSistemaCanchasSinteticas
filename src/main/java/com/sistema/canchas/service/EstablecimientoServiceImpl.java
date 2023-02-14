@@ -15,4 +15,10 @@ public class EstablecimientoServiceImpl extends GenericServiceImpl<Establecimien
     public CrudRepository<Establecimiento, Long> getDao() {
         return establecimientoRepository;
     }
+
+    @Override
+    public Establecimiento Ruc(String ruc) {
+        return establecimientoRepository.findByRuc(ruc);
+    }
+
 }

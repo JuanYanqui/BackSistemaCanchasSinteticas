@@ -8,11 +8,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
 @RestController
 @CrossOrigin
-@RequestMapping(path = "/imagen/")
+@RequestMapping(path = "/image")
 public class ImagenController {
 
+    //@Autowired
+    //private ImageService service;
+
+   /*- @PostMapping(value="/upload-image")
+    public ResponseEntity<String> uploadFile(@RequestParam(value = "file") MultipartFile file,@RequestParam String folder) {
+        return new ResponseEntity<String>(service.uploadFile(file, folder), HttpStatus.CREATED);
+    }*/
+
+    // NEWS
     private static String UPLOAD_DIR = "uploads";
 
     @PostMapping("/subir")
@@ -26,5 +36,6 @@ public class ImagenController {
         Path path = Paths.get(UPLOAD_DIR + "/" + imageName);
         return Files.readAllBytes(path);
     }
-
+// NEWS
 }
+

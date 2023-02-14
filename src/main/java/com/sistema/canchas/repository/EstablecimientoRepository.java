@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EstablecimientoRepository extends JpaRepository<Establecimiento, Long> {
 
+        Establecimiento findByRuc(String ruc);
+
 }
