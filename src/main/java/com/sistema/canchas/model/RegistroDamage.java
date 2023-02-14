@@ -20,6 +20,9 @@ public class RegistroDamage {
     private String descripcion;
     @Column(name = "valor")
     private Double valor;
+
+    @Column(name = "foto")
+    private String foto;
     @ManyToOne
     @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")
     private Persona cliente;
@@ -27,9 +30,6 @@ public class RegistroDamage {
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "registroDamage",cascade = CascadeType.ALL)
-    private List<FotoDamage> fotoDamages;
 
     @JsonIgnore
     @OneToMany(mappedBy = "registroDamage",cascade = CascadeType.ALL)

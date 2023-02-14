@@ -5,14 +5,13 @@ import com.sistema.canchas.service.ReclamoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/reclamo")
+@CrossOrigin("*")
 public class ReclamoController {
     @Autowired
     ReclamoService reclamoService;
@@ -20,4 +19,16 @@ public class ReclamoController {
     public ResponseEntity<List<Reclamo>>getList(){
         return new ResponseEntity<>(reclamoService.findByAll(), HttpStatus.OK);
     }
-}
+    @PostMapping("/cre")
+    public ResponseEntity<Reclamo> crearcli(@RequestBody Reclamo reclamo){
+        return new ResponseEntity<>(reclamoService.save(reclamo), HttpStatus.CREATED);
+    }
+    @PutMapping("/upd/{id}")
+    public ResponseEntity<Reclamo> UpdateUser(@RequestBody Reclamo r,@PathVariable Long id){
+        Reclamo rec=reclamoService.findById(id);
+        rec.setTitulo(r.getTitulo());
+        rec.setDescripcion(r.getDescripcion());
+        rec.setFecha_reclamo(r.getFecha_reclamo());
+        return new ResponseEntity<>(reclamoService.save(rec),HttpStatus.CREATED);
+
+    }}

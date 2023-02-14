@@ -19,13 +19,18 @@ public class Cancha {
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "ancho")
-    private Double ancho;
+    private Integer ancho;
     @Column(name = "altura")
-    private Double altura;
+    private Integer altura;
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "tarifa")
-    private Double tarifa;
+    private String tarifa;
+    @Column(name = "vacante")
+    private Boolean vacante;
+    @Column(name="foto")
+    private String foto;
+
     @ManyToOne
     @JoinColumn(name = "idEstablecimiento",referencedColumnName = "idEstablecimiento")
     private Establecimiento establecimiento;
