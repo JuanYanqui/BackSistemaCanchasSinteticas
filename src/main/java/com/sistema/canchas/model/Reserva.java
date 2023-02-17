@@ -18,8 +18,11 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReserva")
     private Long idReserva;
-    @Column(name = "fecha_reserva")
-    private Date fecha_reserva;
+    @Column(name = "fecha_entrada")
+    private Date fecha_entrada;
+    //Relaciones con tablas
+    @Column(name = "fecha_salida")
+    private Date fecha_salida;
     //Relaciones con tablas
     @ManyToOne
     @JoinColumn(name = "idDisponibilidad",referencedColumnName = "idDisponibilidad")

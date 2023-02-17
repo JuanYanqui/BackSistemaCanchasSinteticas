@@ -69,12 +69,10 @@ public class Establecimiento {
     @OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL)
     private List<RegistroDamage> registroDamages;
 
-    @ManyToOne
-    @JoinColumn(name = "idBarrio",referencedColumnName = "idBarrio")
-    private Barrio barrio;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUbicacion",referencedColumnName = "idUbicacion")
     private Ubicacion ubicacion;
 
 }
+

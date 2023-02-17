@@ -39,6 +39,7 @@ public class UsuarioController {
         Usuario us=service.findById(id);
         us.setUsername(u.getUsername());
         us.setPassword(u.getPassword());
+        us.setEstado(u.getEstado());
         return new ResponseEntity<>(service.save(us),HttpStatus.CREATED);
 
     }

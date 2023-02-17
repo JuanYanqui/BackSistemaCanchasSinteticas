@@ -1,6 +1,7 @@
 package com.sistema.canchas.controller;
 
 import com.sistema.canchas.model.Cancha;
+import com.sistema.canchas.model.Usuario;
 import com.sistema.canchas.service.CanchaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cancha")
@@ -40,4 +42,17 @@ public class CanchaController {
         return new ResponseEntity<>(canchaService.save(ca),HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "/listbyestablecimiento/{idEstablecimiento}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public List<Cancha> getProveedor(@PathVariable Long idEstablecimiento){
+        return canchaService.listaByEstablecimeinto(idEstablecimiento);
+    }
+
+    @RequestMapping(value = "/{idCancha}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Optional<Cancha> porId(@PathVariable Long idCancha) {
+        return canchaService.porId(idCancha);
+    }
 }

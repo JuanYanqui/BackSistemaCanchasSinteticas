@@ -1,6 +1,7 @@
 package com.sistema.canchas.controller;
 
 import com.sistema.canchas.model.Establecimiento;
+import com.sistema.canchas.model.Persona;
 import com.sistema.canchas.model.Usuario;
 import com.sistema.canchas.service.EstablecimientoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/establecimiento")
@@ -26,6 +28,13 @@ public class EstablecimientoController {
         return new ResponseEntity<>(establecimientoService.findByAll(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{idEstablecimiento}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Optional<Establecimiento> porId(@PathVariable Long idEstablecimiento){
+        return establecimientoService.porId(idEstablecimiento);
+    }
+
     @PutMapping("/upd/{id}")
     public ResponseEntity<Establecimiento> UpdateUser(@RequestBody Establecimiento e,@PathVariable Long id){
         Establecimiento es = establecimientoService.findById(id);
@@ -38,6 +47,13 @@ public class EstablecimientoController {
         es.setEstacionamiento(e.getEstacionamiento());
         return new ResponseEntity<>(establecimientoService.save(es),HttpStatus.CREATED);
 
+    }
+
+    @RequestMapping(value = "byRuc/{ruc}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Establecimiento porCedula(@PathVariable String ruc){
+        return establecimientoService.Ruc(ruc);
     }
 
 }

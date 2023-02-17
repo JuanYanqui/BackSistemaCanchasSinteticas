@@ -24,6 +24,7 @@ public class Usuario {
 
     @Column(name="estado")
     private boolean estado;
+    
     //Relaciones con tablas
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
@@ -34,6 +35,7 @@ public class Usuario {
     private Rol rol;
 
 
-
-
+    public boolean getEstado() {
+        return estado;
+    }
 }
