@@ -6,6 +6,8 @@ import lombok.Setter;
 
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -19,10 +21,10 @@ public class Reserva {
     @Column(name = "idReserva")
     private Long idReserva;
     @Column(name = "fecha_entrada")
-    private Date fecha_entrada;
+    private LocalDate fecha_entrada;
     //Relaciones con tablas
     @Column(name = "fecha_salida")
-    private Date fecha_salida;
+    private LocalDate fecha_salida;
     //Relaciones con tablas
     @ManyToOne
     @JoinColumn(name = "idDisponibilidad",referencedColumnName = "idDisponibilidad")

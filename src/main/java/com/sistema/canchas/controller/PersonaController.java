@@ -1,5 +1,6 @@
 package com.sistema.canchas.controller;
 
+import com.sistema.canchas.model.Establecimiento;
 import com.sistema.canchas.model.Persona;
 import com.sistema.canchas.model.Rol;
 import com.sistema.canchas.service.PersonaService;
@@ -64,5 +65,12 @@ public class PersonaController {
         return personaService.porCedula(cedula);
     }
 
+
+   /*@RequestMapping(value = "/listbyestable/{idPersona}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Establecimiento>  getEstbalecimientos(@PathVariable Long idPersona){
+        return personaService.listaByEstable(idPersona);
+    }
+*/
 
 }

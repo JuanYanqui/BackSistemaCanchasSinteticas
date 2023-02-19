@@ -1,5 +1,6 @@
 package com.sistema.canchas.controller;
 
+import com.sistema.canchas.model.Cancha;
 import com.sistema.canchas.model.Establecimiento;
 import com.sistema.canchas.model.Persona;
 import com.sistema.canchas.model.Usuario;
@@ -54,6 +55,17 @@ public class EstablecimientoController {
     @CrossOrigin
     public Establecimiento porCedula(@PathVariable String ruc){
         return establecimientoService.Ruc(ruc);
+    }
+
+    @DeleteMapping("/eli/{id}")
+    public ResponseEntity <?> eliminarli(@PathVariable Long id) {
+        establecimientoService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/listbypersona/{idPersona}", method = RequestMethod.GET)
+    public List<Establecimiento> getEstablecimientos(@PathVariable Long idPersona){
+        return establecimientoService.listarByPersona(idPersona);
     }
 
 }

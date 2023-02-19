@@ -55,4 +55,10 @@ public class CanchaController {
     public Optional<Cancha> porId(@PathVariable Long idCancha) {
         return canchaService.porId(idCancha);
     }
+
+    @DeleteMapping("/eli/{id}")
+    public ResponseEntity <?> eliminarli(@PathVariable Long id) {
+        canchaService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

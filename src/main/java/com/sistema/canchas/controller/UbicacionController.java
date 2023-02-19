@@ -36,4 +36,10 @@ public class UbicacionController {
         return new ResponseEntity<>(ubicacionService.save(ub),HttpStatus.CREATED);
 
     }
+
+    @DeleteMapping("/eli/{id}")
+    public ResponseEntity <?> eliminarli(@PathVariable Long id) {
+        ubicacionService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
