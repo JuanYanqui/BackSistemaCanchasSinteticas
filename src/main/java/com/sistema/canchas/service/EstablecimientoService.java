@@ -14,4 +14,6 @@ public interface EstablecimientoService extends GenericService<Establecimiento,L
 
     List<Establecimiento> listarByPersona(Long idPersona);
 
+    List<Establecimiento> findByPersona(Persona persona);
+
 }

@@ -1,6 +1,7 @@
 package com.sistema.canchas.service;
 
 import com.sistema.canchas.model.Establecimiento;
+import com.sistema.canchas.model.Persona;
 import com.sistema.canchas.repository.EstablecimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -34,5 +35,10 @@ public class EstablecimientoServiceImpl extends GenericServiceImpl<Establecimien
     public List<Establecimiento> listarByPersona(Long idPersona) {
 
         return establecimientoRepository.findByPersonaIdPersona(idPersona);
+    }
+
+    @Override
+    public List<Establecimiento> findByPersona(Persona persona) {
+        return establecimientoRepository.findByPersona(persona);
     }
 }

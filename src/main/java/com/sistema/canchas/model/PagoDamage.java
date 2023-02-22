@@ -20,9 +20,9 @@ public class PagoDamage {
     @Column(name = "fecha_pago")
     private Date fecha_pago;
     @Column(name = "estado")
-    private Boolean estado;
+    private String estado;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "idDamage",referencedColumnName = "idDamage")
     private RegistroDamage registroDamage;
 

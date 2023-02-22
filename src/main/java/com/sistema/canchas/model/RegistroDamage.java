@@ -31,7 +31,4 @@ public class RegistroDamage {
     private Establecimiento establecimiento;
 
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "registroDamage",cascade = CascadeType.ALL)
-    private List<PagoDamage> pagoDamages;
 }

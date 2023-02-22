@@ -5,6 +5,7 @@ import com.sistema.canchas.model.Establecimiento;
 import com.sistema.canchas.model.Persona;
 import com.sistema.canchas.model.Usuario;
 import com.sistema.canchas.service.EstablecimientoService;
+import com.sistema.canchas.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,6 +47,7 @@ public class EstablecimientoController {
         es.setBanios(e.getBanios());
         es.setVestidores(e.getVestidores());
         es.setEstacionamiento(e.getEstacionamiento());
+        es.setFotoestablecimiento(e.getFotoestablecimiento());
         return new ResponseEntity<>(establecimientoService.save(es),HttpStatus.CREATED);
 
     }
@@ -66,6 +68,15 @@ public class EstablecimientoController {
     @RequestMapping(value = "/listbypersona/{idPersona}", method = RequestMethod.GET)
     public List<Establecimiento> getEstablecimientos(@PathVariable Long idPersona){
         return establecimientoService.listarByPersona(idPersona);
+    }
+
+    @Autowired
+    PersonaService personaService;
+
+    @GetMapping("/lip/{id}")
+    public ResponseEntity<List<Establecimiento>> getList(@PathVariable Long id){
+        Persona p=personaService.findById(id);
+        return new ResponseEntity<>(establecimientoService.findByPersona(p),HttpStatus.OK);
     }
 
 }

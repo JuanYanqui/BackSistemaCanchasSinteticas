@@ -1,10 +1,13 @@
 package com.sistema.canchas.service;
 
 import com.sistema.canchas.model.PagoDamage;
+import com.sistema.canchas.model.RegistroDamage;
 import com.sistema.canchas.repository.PagoDamageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PagoDamageServiceImpl extends GenericServiceImpl<PagoDamage,Long>implements PagoDamageService {
@@ -13,5 +16,15 @@ public class PagoDamageServiceImpl extends GenericServiceImpl<PagoDamage,Long>im
     @Override
     public CrudRepository<PagoDamage, Long> getDao() {
         return pagoDamageRepository;
+    }
+
+    @Override
+    public PagoDamage findByRegistroDamage(RegistroDamage registroDamage) {
+        return pagoDamageRepository.findByRegistroDamage(registroDamage);
+    }
+
+    @Override
+    public List<PagoDamage> findByIdP(Long personaId) {
+        return pagoDamageRepository.findByIdP(personaId);
     }
 }

@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +20,12 @@ public class Disponibilidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idDisponibilidad")
     private Long idDisponibilidad;
-    @Column(name = "hora")
-    private Date hora;
+    @Column(name = "horainicio")
+    private LocalDateTime horainicio;
+
+    @Column(name = "horafin")
+    private LocalDateTime  horafin;
+
 
     @ManyToOne
     @JoinColumn(name = "idCancha",referencedColumnName = "idCancha")

@@ -1,5 +1,6 @@
 package com.sistema.canchas.service;
 
+import com.sistema.canchas.model.PagoDamage;
 import com.sistema.canchas.model.RegistroDamage;
 import com.sistema.canchas.repository.RegistroDamageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,4 +15,6 @@ public class RegistroDamageServiceImpl extends GenericServiceImpl<RegistroDamage
     public CrudRepository<RegistroDamage, Long> getDao() {
         return registroDamageRepository;
     }
+
+
 }
