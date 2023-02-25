@@ -25,4 +25,15 @@ public class ReservaController {
     public ResponseEntity<Reserva> crear(@RequestBody Reserva reserva){
         return new ResponseEntity<>(reservaService.save(reserva), HttpStatus.CREATED);
     }
+
+    @GetMapping("/{id}")
+    public Reserva getUsuarioConPublicaciones(@PathVariable Long id) {
+        return reservaService.obtenerUsuarioConPublicaciones(id);
+    }
+
+    @DeleteMapping("/eli/{id}")
+    public ResponseEntity <?> eliminarli(@PathVariable Long id) {
+        reservaService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

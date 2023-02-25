@@ -7,6 +7,7 @@ import lombok.Setter;
 
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -51,7 +52,8 @@ public class Persona {
     private String foto;
 
     @Column(name="fechaRegistro")
-    private LocalDate fechaRegistro;
+    @Temporal(TemporalType.DATE)
+    private Date fechaRegistro;
 
     @Column(name = "entidad_bancaria")
     private String entidad_bancaria;
@@ -59,6 +61,11 @@ public class Persona {
     @Column(name = "numero_cuenta")
     private String numero_cuenta;
     //Relaciones con tablas
+
+    @PrePersist
+    public void prePersist() {
+        fechaRegistro= new Date();
+    }
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)

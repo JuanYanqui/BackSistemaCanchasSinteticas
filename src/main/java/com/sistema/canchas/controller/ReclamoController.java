@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/reclamo")
@@ -28,7 +29,15 @@ public class ReclamoController {
         Reclamo rec=reclamoService.findById(id);
         rec.setTitulo(r.getTitulo());
         rec.setDescripcion(r.getDescripcion());
-        rec.setFecha_reclamo(r.getFecha_reclamo());
+        //rec.setFecha_reclamo(r.getFecha_reclamo());
         return new ResponseEntity<>(reclamoService.save(rec),HttpStatus.CREATED);
 
-    }}
+    }
+
+    @RequestMapping(value = "/{idPersona}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Optional<Reclamo> porId(@PathVariable Long idPersona){
+        return reclamoService.porId(idPersona);
+    }
+}

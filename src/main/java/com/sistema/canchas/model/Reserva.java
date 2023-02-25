@@ -21,9 +21,11 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReserva")
     private Long idReserva;
-    @ManyToOne
-    @JoinColumn(name = "idDisponibilidad",referencedColumnName = "idDisponibilidad")
-    private Disponibilidad disponibilidad;
+
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "idReserva")
+    private List<Disponibilidad> disponibilidades;
 
     @ManyToOne
     @JoinColumn(name = "idPersona",referencedColumnName = "idPersona")

@@ -14,4 +14,13 @@ public class ReservaServiceImpl extends GenericServiceImpl<Reserva,Long>implemen
     public CrudRepository<Reserva, Long> getDao() {
         return reservaRepository;
     }
+
+    public Reserva obtenerUsuarioConPublicaciones(Long id) {
+        return reservaRepository.findById(id)
+                .map(usuario -> {
+                    usuario.getDisponibilidades().size(); // Accede a la lista de publicaciones para forzar la carga desde la base de datos
+                    return usuario;
+                })
+                .orElseThrow(() -> null);
+    }
 }

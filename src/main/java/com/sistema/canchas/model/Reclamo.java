@@ -22,8 +22,13 @@ public class Reclamo {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "fecha_reclamo")
+    @Temporal(TemporalType.DATE)
     private Date fecha_reclamo;
 
+    @PrePersist
+    public void prePersist() {
+        fecha_reclamo= new Date();
+    }
     @ManyToOne
     @JoinColumn(name = "idCliente",referencedColumnName = "idPersona")
     private Persona cliente;

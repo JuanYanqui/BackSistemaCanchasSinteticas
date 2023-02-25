@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ReclamoServiceImpl extends GenericServiceImpl<Reclamo,Long>implements ReclamoService{
     @Autowired
@@ -14,5 +16,11 @@ public class ReclamoServiceImpl extends GenericServiceImpl<Reclamo,Long>implemen
     @Override
     public CrudRepository<Reclamo, Long> getDao() {
         return reclamoRepository;
+    }
+
+    @Override
+    public Optional<Reclamo> porId(Long idReclamo) {
+
+        return reclamoRepository.findById(idReclamo);
     }
 }

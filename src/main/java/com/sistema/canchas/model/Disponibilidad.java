@@ -37,6 +37,6 @@ public class Disponibilidad {
     private Cancha cancha;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "disponibilidad",cascade = CascadeType.ALL)
-    private List<Reserva> reserva;
+    @ManyToOne
+    private Reserva reserva;
 }
