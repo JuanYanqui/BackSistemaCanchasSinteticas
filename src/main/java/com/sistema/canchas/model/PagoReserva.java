@@ -17,11 +17,14 @@ public class PagoReserva {
     private Long idPagoReserva;
     @Column(name = "foto")
     private String foto;
-    @Column(name = "estado")
-    private String estado;
+    @Column(name = "estadopago")
+    private String estadopago;
     @Column(name = "fecha_pago")
     private LocalDate fecha_pago;
     //Relaciones con tablas
+
+    @Column(name = "valor")
+    private Integer valor;
     @ManyToOne
     @JoinColumn(name = "idReserva",referencedColumnName = "idReserva")
     private Reserva reserva;

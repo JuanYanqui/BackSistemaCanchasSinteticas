@@ -25,6 +25,8 @@ public class Reclamo {
     @Temporal(TemporalType.DATE)
     private Date fecha_reclamo;
 
+    private Boolean estado = false;
+
     @PrePersist
     public void prePersist() {
         fecha_reclamo= new Date();

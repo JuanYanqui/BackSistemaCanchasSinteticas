@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReservaServiceImpl extends GenericServiceImpl<Reserva,Long>implements ReservaService{
     @Autowired
@@ -23,4 +25,14 @@ public class ReservaServiceImpl extends GenericServiceImpl<Reserva,Long>implemen
                 })
                 .orElseThrow(() -> null);
     }
+
+    @Override
+    public List<Reserva> buscarPorIdCliente(Long idPersona) {
+        return reservaRepository.findByClienteId(idPersona);
+    }
+
+
+
+
+
 }

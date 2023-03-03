@@ -26,11 +26,13 @@ public class Disponibilidad {
 
     @Column(name = "horainicio")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date fecha;
+    private LocalDate fecha;
 
     @Column(name = "horafin")
     private Integer  hora;
 
+    @Column(name = "estado")
+    private Boolean  estado;
 
     @ManyToOne
     @JoinColumn(name = "idCancha",referencedColumnName = "idCancha")

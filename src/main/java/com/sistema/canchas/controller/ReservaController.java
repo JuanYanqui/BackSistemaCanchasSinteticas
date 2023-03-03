@@ -36,4 +36,11 @@ public class ReservaController {
         reservaService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
+
+    @GetMapping("/cliente/{idPersona}")
+    public List<Reserva> getReservasByClienteId(@PathVariable Long idPersona) {
+        return reservaService.buscarPorIdCliente(idPersona);
+    }
 }

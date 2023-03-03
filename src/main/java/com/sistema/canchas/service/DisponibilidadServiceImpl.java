@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,9 +27,28 @@ public class DisponibilidadServiceImpl extends GenericServiceImpl<Disponibilidad
 
         return disponibilidadRepository.findById(idDisponibilidad);
     }
-    @Override
+
+  /*  @Override
     public List<Disponibilidad> getDisponibilidadesPorFechaYHora(Date fecha, Integer hora, Long idCancha) {
-        return disponibilidadRepository.getDisponibilidadesPorFechaYHora(fecha, hora, idCancha);
+        return null;
     }
+
+    public Boolean verificarDisponibilidad(Date fecha, Integer hora, Long idCancha) {
+        return disponibilidadRepository.existsByFechaAndHoraAndCanchaId(fecha, hora, idCancha);
+    }
+*/
+
+    public boolean existsDisponibilidadByFechaAndHoraAndCanchaId(Date fecha, Integer hora, Long idCancha) {
+        if(disponibilidadRepository.getDisponibilidadesPorFechaYHora(fecha,hora, idCancha)!=null){
+            return  true;
+        }else {
+            return false;
+        }
+    }
+
+    public List<Object[]> getFechasHorasByCanchaId(Long idCancha) {
+        return disponibilidadRepository.findFechasHorasByCanchaId(idCancha);
+    }
+
 
 }
